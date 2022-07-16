@@ -1,18 +1,12 @@
 import * as core from '@actions/core'
-import {wait} from './wait'
 
 async function run(): Promise<void> {
   try {
-    const ms: string = core.getInput('milliseconds')
-    core.debug(`Waiting ${ms} milliseconds ...`) // debug is only output if you set the secret `ACTIONS_STEP_DEBUG` to true
+    core.info(`Hello world`)
+    const username = core.getInput('user_name')
+    core.info(`Hello ${username}`)
 
-    core.debug(new Date().toTimeString())
-    core.info(`Hello world1`)
-    await wait(parseInt(ms, 10))
-    core.info(`Hello world2`)
-    core.debug(new Date().toTimeString())
-
-    core.setOutput('time', new Date().toTimeString())
+    core.info(`username === admin : ${username === 'admin'}`)
   } catch (error) {
     if (error instanceof Error) core.setFailed(error.message)
   }
