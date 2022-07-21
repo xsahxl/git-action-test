@@ -1,22 +1,13 @@
-# name: 'Your name here'
-# description: 'Provide a description here'
-# author: 'Your name or organization here'
-# inputs:
-#   milliseconds: # change this
-#     required: true
-#     description: 'input description here'
-#     default: 'default value if applicable'
-# runs:
-#   using: 'node16'
-#   main: 'dist/index.js'
-
-name: "Auto label"
-description: "Automation generate label for issues."
-author: "Caijinglong"
+name: 'Auto label with your title'
+description: 'Automation generate label for issues.'
+author: 'Caijinglong'
 inputs:
   user_name:
+    required: false
+    description: 'User name'
+  github-token:
     required: true
-    description: "User name"
+    description: 'Your github token, it is secrets.GITHUB_TOKEN.'
 runs:
-  using: "node12"
-  main: "dist/index.js"
+  using: 'node12'
+  main: 'dist/index.js'

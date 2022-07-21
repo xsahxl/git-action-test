@@ -1,15 +1,10 @@
 import * as core from '@actions/core'
+import {run} from './handle'
 
-async function run(): Promise<void> {
-  try {
-    core.info(`Hello world`)
-    const username = core.getInput('user_name')
-    core.info(`Hello ${username}`)
-
-    core.info(`username === admin : ${username === 'admin'}`)
-  } catch (error) {
-    if (error instanceof Error) core.setFailed(error.message)
-  }
+function exec(): void {
+  const token = core.getInput('github-token')
+  // const token = process.env['INPUT_GITHUB_TOKEN'] as string
+  run(token)
 }
 
-run()
+exec()

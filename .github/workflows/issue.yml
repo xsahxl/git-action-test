@@ -1,5 +1,5 @@
-name: "On issue"
-on:
+name: 'On issue'
+on: 
   issues:
     types: [opened, reopened, edited]
 jobs:
@@ -10,3 +10,4 @@ jobs:
       - uses: ./
         with:
           user_name: ${{ secrets.USER_NAME }}
+          github-token: ${{ secrets.GITHUB_TOKEN }}

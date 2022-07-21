@@ -20,5 +20,6 @@ jobs:
     steps:
       - uses: actions/checkout@v2
       - uses: ./
-        with:
-          milliseconds: 1000
+        with: 
+          github-token: ${{ secrets.GITHUB_TOKEN }}
+          user_name: ${{ secrets.USER_NAME }}
