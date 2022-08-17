@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any */
 import * as core from '@actions/core'
 import * as github from '@actions/github'
 import * as Webhooks from '@octokit/webhooks'
@@ -88,7 +89,7 @@ export async function run(githubToken: string): Promise<void> {
     }
 
     core.info('run success')
-  } catch (error) {
+  } catch (error: any) {
     core.error('The action run error:')
     core.error(error)
     core.setFailed(error.message)
