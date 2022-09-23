@@ -2,7 +2,7 @@ name: "On Push master"
 triggers:
   github:
     secret: test
-    filters:
+    events:
       - eventName: "push"
         filter: 'body.ref in ["refs/heads/tes"]'
     manual_dispatch:
