@@ -1,5 +1,5 @@
 name: "On Push master"
-trigger:
+triggers:
   github:
     secret: test
     filters:
