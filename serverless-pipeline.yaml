@@ -1,11 +1,12 @@
 name: "On Push master"
-github:
-  secret: test
-  filters:
-    - eventName: "push"
-      filter: 'body.ref in ["refs/heads/tes"]'
-  manual_dispatch:
-    secret: {}
+trigger:
+  github:
+    secret: test
+    filters:
+      - eventName: "push"
+        filter: 'body.ref in ["refs/heads/tes"]'
+    manual_dispatch:
+      secret: {}
 env:
   name: Heimanba
   age: 30
