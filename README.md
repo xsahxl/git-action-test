@@ -1,4 +1,4 @@
-# Auto label test03
+# Auto label test04
 
 If your label is `[bug] The title have problem`, then the action will be add a 'bug' label for it.
 
