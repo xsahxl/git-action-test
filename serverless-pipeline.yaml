@@ -1,8 +1,9 @@
 name: "On Push master"
-on:
-  push:
-    branches:
-      - master
+triggers:
+  github:
+    secret: test
+    events:
+      - eventName: "push"
 env:
   name: Heimanba
   age: 30
@@ -11,3 +12,7 @@ steps:
   - run: echo 'Hi {{ env.name }}'  # Hi Tony
     env:
       name: Tony
+  - run: echo 'Hi {{ task_id }}'
+  - run: echo 'Hi {{ app.user_name }}'
+  - run: echo 'Hi {{ git.event_name }}'
+  - run: echo 'suceess end ===='
