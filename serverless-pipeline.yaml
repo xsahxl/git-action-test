@@ -14,4 +14,4 @@ steps:
     #   ACCESS_KEY_ID: ${{secrets.ALIYUN_ACCESS_KEY_ID}}
     #   ACCESS_KEY_SECRET: ${{secrets.ALIYUN_ACCESS_KEY_ID}}
     run: s deploy --use-local -y --debug
-    working-directory: ./
+    working-directory: /tmp/code
