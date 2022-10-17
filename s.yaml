@@ -1,0 +1,24 @@
+edition: 1.0.0
+name: hello-world-app
+access: "default"
+
+vars: # 全局变量
+  region: "cn-hangzhou"
+  service:
+    name: "test-cd"
+    description: 'hello world by serverless devs'
+
+services:
+  helloworld:
+    component: fc
+    props:
+      region: ${vars.region}
+      service: ${vars.service}
+      function:
+        name: "start-fc-event-golang1x"
+        description: 'hello world by serverless devs'
+        runtime: nodejs14
+        codeUri: ./code
+        handler: main
+        memorySize: 128
+        timeout: 60
