@@ -3,12 +3,9 @@ env:
   name: Heimanba
   age: 30
 steps:
-  - run: echo 'Hi {{ env.name }}'  # Hi Heimanba
-  - run: echo 'Hi {{ env.name }}'  # Hi Tony
-    env:
-      name: Tony
   - run: npm install -g @serverless-devs/s
   - run: s config add --AccessKeyID ${{secrets.ALIYUN_ACCESS_KEY_ID}} --AccessKeySecret ${{secrets.ALIYUN_ACCESS_KEY_SECRET}} -a default -f
+  - run: s config get
   - name: deploy serverless devs
     # env:
     #   ACCESS_KEY_ID: ${{secrets.ALIYUN_ACCESS_KEY_ID}}

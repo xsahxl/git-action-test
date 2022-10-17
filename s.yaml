@@ -19,6 +19,6 @@ services:
         description: 'hello world by serverless devs'
         runtime: nodejs14
         codeUri: ./code
-        handler: main
+        handler: index.handler
         memorySize: 128
         timeout: 60
