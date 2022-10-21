@@ -1,4 +1,4 @@
-name: "On Push master"
+name: "On Push masters"
 
 steps:
   - run: echo 'Hi {{ env.name }}'  # Hi Heimanba
