@@ -10,10 +10,10 @@ steps:
   - run: echo 'Hi {{ app.user_name }}'
   - run: echo 'Hi {{ git.event_name }}'
 
-  - run: npm install -g @serverless-devs/s
-  - run: s -v
-  - run: s config add --AccessKeyID ${{secrets.ALIYUN_ACCESS_KEY_ID}} --AccessKeySecret ${{secrets.ALIYUN_ACCESS_KEY_SECRET}} -a default -f
-  - run: s config get
-  - name: deploy serverless devs
-    run: s deploy --use-local -y --debug
-    working-directory: /tmp/code
+  # - run: npm install -g @serverless-devs/s
+  # - run: s -v
+  # - run: s config add --AccessKeyID ${{secrets.ALIYUN_ACCESS_KEY_ID}} --AccessKeySecret ${{secrets.ALIYUN_ACCESS_KEY_SECRET}} -a default -f
+  # - run: s config get
+  # - name: deploy serverless devs
+  #   run: s deploy --use-local -y --debug
+  #   working-directory: /tmp/code
