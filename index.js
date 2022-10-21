@@ -10,4 +10,3 @@ const log = new Engine({
 });
 
 log.info(JSON.stringify({ a: 'cc', b: 'bb', c: 'ssss' }));
-
