@@ -11,6 +11,9 @@ vars: # 全局变量
 services:
   helloworld:
     component: fc
+    actions:
+      pre-deploy:
+        - run: nvm use 16 && npm -v
     props:
       region: ${vars.region}
       service: ${vars.service}
