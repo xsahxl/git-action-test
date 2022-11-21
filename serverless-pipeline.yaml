@@ -5,7 +5,7 @@ steps:
     run: ls -al
     working-directory: ./code
   - name: install
-    run: npm install && ls -al
+    run: npm install
     working-directory: ./code
   - name: install
     run: npm publish
