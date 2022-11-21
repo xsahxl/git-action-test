@@ -1,20 +1,12 @@
 name: "On Push masters"
 
 steps:
-  - name: ls
-    run: ls -al
-    working-directory: ./code
-  - name: install
-    run: npm install
-    working-directory: ./code
+  # - name: save token
+  #   run: "echo \/\/registry.npmjs.org/:_authToken=${secrets.NPM_TOKEN} > .npmrc"
+  #   working-directory: ./code
   - name: save token
-    run: "echo \/\/registry.npmjs.org/:_authToken=${secrets.NPM_TOKEN} > .npmrc"
+    run: npm config set //registry.npmjs.org/:_authToken ${secrets.NPM_TOKEN}
     working-directory: ./code
-  - name: ls
-    run: ls -al
-    working-directory: ./code
-  - name: show .npmrc
-    run: cat /code/.npmrc
   - name: npm publish
     # if: ${{ contains(github.ref, 'engine')}}
     working-directory: ./code
