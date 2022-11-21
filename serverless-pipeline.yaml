@@ -1,8 +1,14 @@
 name: "On Push masters"
 
 steps:
-  - name: engine publish
-    run: "ls -al && npm install && ls -al && npm publish"
+  - name: ls
+    run: ls -al
+    working-directory: ./code
+  - name: install
+    run: npm install && ls -al
+    working-directory: ./code
+  - name: install
+    run: npm publish
     # if: ${{ contains(github.ref, 'engine')}}
     working-directory: ./code
     env:
