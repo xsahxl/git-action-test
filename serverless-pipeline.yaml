@@ -1,19 +1,9 @@
 name: "On Push masters"
 
-
 steps:
-  - run: echo 'Hi {{ env.name }}'  # Hi Heimanba
-  # - run: echo 'Hi {{ env.name }}'  # Hi Tony
-  #   env:
-  #     name: Tony
-  - run: echo 'Hi {{ task_id }}'
-  - run: echo 'Hi {{ app.user_name }}'
-  - run: echo 'Hi {{ git.event_name }}'
-
-#   - run: npm install -g @serverless-devs/s
-#   - run: s -v
-#   - run: s config add --AccessKeyID ${{secrets.ALIYUN_ACCESS_KEY_ID}} --AccessKeySecret ${{secrets.ALIYUN_ACCESS_KEY_SECRET}} -a default -f
-#   - run: s config get
-  # - name: deploy serverless devs
-  #   run: s deploy --use-local -y --debug
-  #   working-directory: /tmp/code
+  - name: engine publish
+    run: npm publish
+    # if: ${{ contains(github.ref, 'engine')}}
+    working-directory: ./code
+    env:
+      NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
