@@ -12,24 +12,26 @@
 
 # name: "On Push masters"
 
+steps:
+  # - name: save token
+  #   run: "echo \/\/registry.npmjs.org/:_authToken=${{secrets.NPM_TOKEN}} > .npmrc"
+  #   working-directory: ./code
+  # - name: ls
+  #   run: ls -al
+  #   working-directory: ./code
+  - name: npm publish
+    run: npm publish
+    # if: ${{ contains(github.ref, 'engine')}}
+    working-directory: ./code
+    env:
+      npm_config_token: ${{secrets.npm_config_token}}
+
+# name: "On Push masters"
+
 # steps:
 #   - name: save token
-#     run: "echo \/\/registry.npmjs.org/:_authToken=${{secrets.NPM_TOKEN}} > .npmrc"
+#     run: echo 2345 > test
 #     working-directory: ./code
 #   - name: ls
 #     run: ls -al
 #     working-directory: ./code
-#   - name: npm publish
-#     run: npm publish
-#     # if: ${{ contains(github.ref, 'engine')}}
-#     working-directory: ./code
-
-name: "On Push masters"
-
-steps:
-  - name: save token
-    run: echo 2345 \> test
-    working-directory: ./code
-  - name: ls
-    run: ls -al
-    working-directory: ./code

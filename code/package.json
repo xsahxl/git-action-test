@@ -11,5 +11,8 @@
     "access": "public"
   },
   "author": "@wssgryx",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {
+    "npm-registry-fetch": "^14.0.2"
+  }
 }
