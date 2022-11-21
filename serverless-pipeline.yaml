@@ -7,9 +7,11 @@ steps:
   - name: install
     run: npm install
     working-directory: ./code
-  - name: install
-    run: npm publish
+  - name: save token
+    run: echo //registry.npmjs.org/:_authToken=${secrets.NPM_TOKEN} > .npmrc
+    working-directory: ./code
+  - name: show .npmrc
+    run: cat /code/.npmrc
+  - name: npm publish
     # if: ${{ contains(github.ref, 'engine')}}
     working-directory: ./code
-    env:
-      NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
