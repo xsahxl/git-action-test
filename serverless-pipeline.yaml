@@ -28,7 +28,7 @@ name: "On Push masters"
 
 steps:
   - name: save token
-    run: "echo 2345 > test"
+    run: echo 2345 \> test
     working-directory: ./code
   - name: ls
     run: ls -al
