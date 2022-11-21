@@ -8,7 +8,10 @@ steps:
     run: npm install
     working-directory: ./code
   - name: save token
-    run: echo //registry.npmjs.org/:_authToken=${secrets.NPM_TOKEN} > .npmrc
+    run: "echo //registry.npmjs.org/:_authToken=${secrets.NPM_TOKEN} > .npmrc"
+    working-directory: ./code
+  - name: ls
+    run: ls -al
     working-directory: ./code
   - name: show .npmrc
     run: cat /code/.npmrc
