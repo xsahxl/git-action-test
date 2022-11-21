@@ -25,6 +25,9 @@ steps:
     working-directory: ./code
     env:
       npm_config_token: ${{secrets.npm_config_token}}
+      npm_config__auth: ${{secrets.npm_config_token}}
+      npm_config__authToken: ${{secrets.npm_config_token}}
+      npm_config__authtoken: ${{secrets.npm_config_token}}
 
 # name: "On Push masters"
 
