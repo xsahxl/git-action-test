@@ -2,7 +2,7 @@ name: "On Push masters"
 
 steps:
   - name: echo
-    uses: './lib'
+    uses: '/tmp/code/lib'
     # if: ${{ contains(github.ref, 'engine')}}
     inputs:
       registry: //registry.npmjs.org
