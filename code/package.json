@@ -1,7 +1,7 @@
 {
   "name": "@wssgryx/npm-test",
   "version": "1.0.11",
-  "description": "测试包",
+  "description": "测试包2",
   "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
