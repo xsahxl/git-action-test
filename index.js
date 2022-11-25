@@ -11,4 +11,4 @@ const a = (url) => {
   return res
 }
 
-// console.log(a('https://registry.npmjs.org/:_auth=xxxx'));
+// console.log(a('https://registry.npmjs.org/:_auth=xxxxxx'));
