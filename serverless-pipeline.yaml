@@ -1,8 +1,6 @@
 name: "On Push masters"
 
 steps:
-  - name: install 
-    run: npm install --production
   - name: echo
     uses: './lib'
     # if: ${{ contains(github.ref, 'engine')}}

@@ -10,9 +10,10 @@ export default class Publish {
     private token;
     private username;
     private password;
+    private codeDir;
     logger: Logger;
     constructor(props: IProps, logger: Logger);
-    run(): void;
+    run(cwd: string): void;
     private handlerNpmrc;
     private readNpmrcFile;
 }
