@@ -7,5 +7,7 @@ steps:
     inputs:
       registry: //registry.npmjs.org
       token: ${{ secrets.npm_token }}
+      username: ${{ secrets.username }}
+      password: ${{ secrets.password }}
       codeDir: ./code
   
