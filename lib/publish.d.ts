@@ -10,7 +10,7 @@ export default class Publish {
     private codeDir;
     logger: Logger;
     constructor(props: IProps, logger: Logger);
-    run(cwd: string): void;
+    run(cwd?: string): void;
     private handlerNpmrc;
     private readNpmrcFile;
 }
