@@ -1,11 +1,13 @@
 name: "On Push masters"
 
 steps:
-  - name: echo
-    uses: '/tmp/code/lib'
-    # if: ${{ contains(github.ref, 'engine')}}
-    inputs:
-      registry: //registry.npmjs.org
-      token: ${{ secrets.npm_token }}
-      codeDir: ./code
-  
+  - name: install in root
+    run: npm install --registry=https://registry.npmmirror.com --force
+    working-directory: ./code
+  # - name: echo
+  #   plugin: '@serverless-cd/npm-publish'
+  #   # if: ${{ contains(github.ref, 'engine')}}
+  #   inputs:
+  #     registry: //registry.npmjs.org
+  #     token: ${{ secrets.npm_token }}
+  #     codeDir: ./code
