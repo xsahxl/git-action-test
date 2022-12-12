@@ -1,5 +1,5 @@
 exports.handler = (event, context, callback) => {
-  console.log('hello world ssss======s');
+  console.log('hello world =====ssss======s');
 
   callback(null, 'hello world!' + process.cwd());
 }
