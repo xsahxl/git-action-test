@@ -1,9 +1,9 @@
 name: "On Push masters"
 
 steps:
-  - name: install in root
-    run: npm install --registry=https://registry.npmmirror.com --force
-    working-directory: ./code
+  # - name: install in root
+  #   run: npm install --registry=https://registry.npmmirror.com --force
+  #   working-directory: ./code
   # - name: echo
   #   plugin: '@serverless-cd/npm-publish'
   #   # if: ${{ contains(github.ref, 'engine')}}
@@ -11,3 +11,12 @@ steps:
   #     registry: //registry.npmjs.org
   #     token: ${{ secrets.npm_token }}
   #     codeDir: ./code
+  - name: 钉钉通知
+    plugin: "@serverless-cd/ding-talk"
+    inputs:
+      webhook: https://oapi.dingtalk.com/robot/send?access_token=${{secrets.DING_TALK_TOKEN}}
+      msgtype: markdown
+      secret: ${{secrets.DING_TALK_SECRET}}
+      payload:
+        title: "Serverless CD"
+        text: "#### 杭州天气 @150XXXXXXXX  \n  > 9度，西北风1级，空气良89，相对温度73%  \n  > ![screenshot](https://img.alicdn.com/tfs/TB1NwmBEL9TBuNjy1zbXXXpepXa-2400-1218.png)  \n > ###### 10点20分发布 [天气](https://www.dingtalk.com) \n"
