@@ -1,12 +1,12 @@
 exports.handler = (event, context, callback) => {
-  console.log('hello world ssss');
-  
+  console.log('hello world ssss======s');
+
   callback(null, 'hello world!' + process.cwd());
 }
 
 const npa = require('npm-package-arg')
 
-function pickRegistry (spec, opts = {}) {
+function pickRegistry(spec, opts = {}) {
   spec = npa(spec)
   let registry = spec.scope && opts[spec.scope.replace(/^@?/, '@') + ':registry']
 
