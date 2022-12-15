@@ -1,6 +1,15 @@
 name: "On Push masters"
 
+runtime:
+  - nodejs17
+  - python3.10
+  - java17
+
 steps:
+  - run: mvn -v
+  - run: python -V 
+  - run: node -v
+  - run: npm -v
   # - name: install in root
   #   run: npm install --registry=https://registry.npmmirror.com --force
   #   working-directory: ./code
@@ -11,16 +20,16 @@ steps:
   #     registry: //registry.npmjs.org
   #     token: ${{ secrets.npm_token }}
   #     codeDir: ./code
-  - name: 钉钉通知
-    plugin: "@serverless-cd/ding-talk"
-    inputs:
-      webhook: https://oapi.dingtalk.com/robot/send?access_token=${{secrets.DING_TALK_TOKEN}}
-      msgtype: markdown
-      secret: ${{secrets.DING_TALK_SECRET}}
-      payload:
-        title: "Serverless CD"
-        text: |
-          # 杭州天气 @150XXXXXXXX   <br />
-          > 9度，西北风1级，空气良89，相对温度73%   <br />
-          > ![screenshot](https://img.alicdn.com/tfs/TB1NwmBEL9TBuNjy1zbXXXpepXa-2400-1218.png)   <br />
-          > ###### 10点20分发布 [天气](https://www.dingtalk.com)   
+  # - name: 钉钉通知
+  #   plugin: "@serverless-cd/ding-talk"
+  #   inputs:
+  #     webhook: https://oapi.dingtalk.com/robot/send?access_token=${{secrets.DING_TALK_TOKEN}}
+  #     msgtype: markdown
+  #     secret: ${{secrets.DING_TALK_SECRET}}
+  #     payload:
+  #       title: "Serverless CD"
+  #       text: |
+  #         # 杭州天气 @150XXXXXXXX   <br />
+  #         > 9度，西北风1级，空气良89，相对温度73%   <br />
+  #         > ![screenshot](https://img.alicdn.com/tfs/TB1NwmBEL9TBuNjy1zbXXXpepXa-2400-1218.png)   <br />
+  #         > ###### 10点20分发布 [天气](https://www.dingtalk.com)   
