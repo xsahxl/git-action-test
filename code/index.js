@@ -1,7 +1,7 @@
 exports.handler = (event, context, callback) => {
   console.log('hello world =====ssss======s');
 
-  callback(null, 'hello world!' + process.cwd());
+  callback(null, 'hello!' + process.cwd());
 }
 
 const npa = require('npm-package-arg')
