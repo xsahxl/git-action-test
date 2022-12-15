@@ -1,6 +1,6 @@
 edition: 1.0.0
 name: hello-world-app
-access: "default"
+access: "quanxi"
 
 vars: # 全局变量
   region: "cn-hangzhou"
@@ -11,9 +11,6 @@ vars: # 全局变量
 services:
   helloworld:
     component: fc
-    actions:
-      pre-deploy:
-        - run: nvm use 16 && npm -v
     props:
       region: ${vars.region}
       service: ${vars.service}
