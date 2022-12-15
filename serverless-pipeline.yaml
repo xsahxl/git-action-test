@@ -6,9 +6,9 @@ runtimes:
   - java17
 
 steps:
-  - run: echo "{{task.url}}"
   - run: node -v
   - run: npm -v
+  - run: echo "{{task.url}}"
   - run: mvn -v
   - run: python -V 
   # - name: install in root
