@@ -6,7 +6,6 @@ runtimes:
   - java17
    
 steps:
-  abc: aaa
   - run: env
   - run: mvn -v
   - run: node -v
