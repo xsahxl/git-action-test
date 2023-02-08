@@ -1,11 +1,12 @@
 name: "On Push masters"
-# 休闲鞋
+
 runtimes:
   - nodejs17
   - python3.10
   - java17
    
 steps:
+  abc: aaa
   - run: env
   - run: mvn -v
   - run: node -v
