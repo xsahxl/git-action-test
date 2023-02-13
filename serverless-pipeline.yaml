@@ -6,6 +6,7 @@ runtimes:
   - java17
    
 steps:
+  nodejs17: true
   - run: env
   - run: mvn -v
   - run: node -v
