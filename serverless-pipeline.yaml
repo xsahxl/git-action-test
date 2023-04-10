@@ -2,8 +2,8 @@ name: "On Push masters"
 #  hj
 runtimes:
   - nodejs17
-  - python3.10
-  - java17
+  # - python3.10
+  # - java17
    
 steps:
   - run: env
@@ -12,10 +12,16 @@ steps:
   - run: npm -v
   - run: echo "{{task.url}}"
   - run: python -V 
+  - run: npm install @serverless-devs/s@beta -g
+  - run: ls -al
+  # - run: s deploy --use-local -y -a default_serverless_devs_access
+  #   env:
+  #     default_serverless_devs_access={"AccountID":"${{cloudSecrets.AccountID}}","AccessKeyID":"${{cloudSecrets.AccessKeyID}}","AccessKeySecret":"${{cloudSecrets.AccessKeySecret}}"}
+  #     core_load_serverless_devs_component='devsapp/fc-deploy@dev;'
+
   # - name: install in root
   #   run: npm install --registry=https://registry.npmmirror.com --force
   #   working-directory: ./code
-
   # - name: echo
   #   plugin: '@serverless-cd/npm-publish'
   #   # if: ${{ contains(github.ref, 'engine')}}
