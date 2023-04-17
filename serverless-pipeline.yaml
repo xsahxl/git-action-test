@@ -20,8 +20,7 @@ steps:
     inputs:
       key: xxxx
       ratio: 70%
-      path: 
-        - ~/.npm
+      path: ~/.npm
   - run: echo "{{task.url}}"
   - run: python -V 
   - run: npm install @serverless-devs/s@beta -g
