@@ -19,6 +19,7 @@ steps:
         accessKeySecret: ${{cloudSecrets.AccessKeySecret}}
         accessKeyID: ${{cloudSecrets.AccessKeyID}}
   - run: pwd
+  - run: ls -al
   - run: echo {{ steps['my-cache'].outputs['cache-hit'] != 'true' }}
   - if: {{ steps.my-cache.outputs.cache-hit != 'true' }}
     run: env
