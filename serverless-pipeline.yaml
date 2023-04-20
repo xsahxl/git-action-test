@@ -16,7 +16,7 @@ steps:
         bucket: wss-test-shenzhen
         internal: false
       credentials:
-        # accessKeySecret: ${{cloudSecrets.AccessKeySecret}}
+        accessKeySecret: ${{cloudSecrets.AccessKeySecret}}
         accessKeyID: ${{cloudSecrets.AccessKeyID}}
   - run: echo {{ steps['my-cache'].outputs['cache-hit'] != 'true' }}
   - if: {{ steps.my-cache.outputs.cache-hit != 'true' }}
