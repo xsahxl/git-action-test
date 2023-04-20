@@ -6,25 +6,28 @@ name: "On Push masters"
   # - java17
 
 steps:
-  - run: env
+  - plugin: "@serverless-cd/cache"
+    name: my-cache
+    inputs:
+      key: 'test-1'
+      path: ./src
+      region: cn-shenzhen
+      ossConfig: 
+        bucket: wss-test-shenzhen
+        internal: false
+      credentials:
+        # accessKeySecret: ${{cloudSecrets.AccessKeySecret}}
+        accessKeyID: ${{cloudSecrets.AccessKeyID}}
+  - run: echo {{ steps.my-cache.outputs.cache-hit != 'true' }}
+  - if: {{ steps.my-cache.outputs.cache-hit != 'true' }}
+    run: env
+  - run: python -V 
   - run: mvn -v
   - run: node -v
   - run: npm -v
-  - plugin: "@serverless-cd/cache"
-    name: my-cache
-    env:
-      ACCESS_KEY_ID: ff
-      SECRET_ACCESS_KEY: ggg
-      REGION: xx
-      BUCKET: xyxy
-    inputs:
-      key: xxxx
-      ratio: 70%
-      path: ~/.npm
-  - run: echo "{{task.url}}"
-  - run: python -V 
-  - run: npm install @serverless-devs/s@beta -g
-  - run: ls -al
+
+  # - run: npm install @serverless-devs/s@beta -g
+  # - run: ls -al
 #   - run: s config get && s deploy --use-local -y -a default_serverless_devs_access
 #     env:
 #       default_serverless_devs_access: '{"AccountID":"${{cloudSecrets.AccountID}}","AccessKeyID":"${{cloudSecrets.AccessKeyID}}","AccessKeySecret":"${{cloudSecrets.AccessKeySecret}}"}'
