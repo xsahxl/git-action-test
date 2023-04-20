@@ -7,7 +7,7 @@ name: "On Push masters"
 
 steps:
   - plugin: "@serverless-cd/cache"
-    name: my-cache
+    id: my-cache
     inputs:
       key: 'test-1'
       path: ./src
@@ -18,7 +18,7 @@ steps:
       credentials:
         # accessKeySecret: ${{cloudSecrets.AccessKeySecret}}
         accessKeyID: ${{cloudSecrets.AccessKeyID}}
-  - run: echo {{ steps.my-cache.outputs.cache-hit != 'true' }}
+  - run: echo {{ steps['my-cache'].outputs['cache-hit'] != 'true' }}
   - if: {{ steps.my-cache.outputs.cache-hit != 'true' }}
     run: env
   - run: python -V 
