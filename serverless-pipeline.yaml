@@ -12,12 +12,13 @@ steps:
       key: 'test-1'
       path: ./src
       region: cn-shenzhen
-      ossConfig: 
+      ossConfig:
         bucket: wss-test-shenzhen
         internal: false
       credentials:
         accessKeySecret: ${{cloudSecrets.AccessKeySecret}}
         accessKeyID: ${{cloudSecrets.AccessKeyID}}
+  - run: pwd
   - run: echo {{ steps['my-cache'].outputs['cache-hit'] != 'true' }}
   - if: {{ steps.my-cache.outputs.cache-hit != 'true' }}
     run: env
