@@ -22,7 +22,7 @@ steps:
   - if: {{ steps.my-cache.outputs.cache-hit != 'true' }}
     run: env
   - run: python -V 
-  - run: mvn -v
+  # - run: mvn -v
   - run: node -v
   - run: npm -v
 
