@@ -15,4 +15,6 @@ steps:
   - run: echo 'Hi {{ task_id }}'
   - run: echo 'Hi {{ app.user_name }}'
   - run: echo 'Hi {{ git.event_name }}'
-  - run: echo 'suceess end ===='
+  - run: echo '${{env.name}}-${{hashFile("package-lock.json")}}'
+
+  
