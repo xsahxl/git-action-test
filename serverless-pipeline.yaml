@@ -11,19 +11,20 @@ steps:
     inputs:
       # key: ${{hashFile('./src/package.json')}}
       key: 'xxxxxxx'
-      path: /tmp/my-cache
+      path: ./src/node_modules
       region: cn-shenzhen
       ossConfig:
         bucket: wss-test-shenzhen
         internal: false
       credentials:
         accessKeySecret: ${{cloudSecrets.AccessKeySecret}}
-        accessKeyID: ${{cloudSecrets.AccessKeyID}}
-  - run: echo {{ steps['my-cache'].outputs['cache-hit'] == 'true' }}
-  - run: env && npm install --production
-    env:
-      PATH: /tmp/my-cache:/opt:/opt/nodejs16/bin:/usr/local/bin/apache-maven/bin:/usr/local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/local/ruby/bin
-      NODE_PATH: /tmp/my-cache
+        accessKeyID: ${{cloudSecrets.AccessKeyIdanD}}
+  - run: echo ${{ steps['my-cache'].outputs['cache-hit'] != 'true' }}
+  - run: ls -al
+    working-directory: ./src
+  - run: npm install --production
+    if: ${{ steps['my-cache'].outputs['cache-hit'] != 'true' }}
+    working-directory: ./src
 
   # - run: npm install @serverless-devs/s@beta -g
   # - run: ls -al
