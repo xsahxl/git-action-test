@@ -19,7 +19,7 @@ steps:
       credentials:
         accessKeySecret: ${{cloudSecrets.AccessKeySecret}}
         accessKeyID: ${{cloudSecrets.AccessKeyID}}
-  - run: pwd
+  - run: env
   - run: echo {{ steps['my-cache'].outputs['cache-hit'] == 'true' }}
   - run: npm install --production
     env:
