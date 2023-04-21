@@ -15,11 +15,9 @@ steps:
   - run: echo 'Hi {{ task_id }}'
   - run: echo 'Hi {{ app.user_name }}'
   - run: echo 'Hi {{ git.event_name }}'
-  - run: echo 'test' >> test.txt
-    path: './'
   - run: pwd
   - run: ls -al
-  - run: echo '${{env.name}}-${{hashFile("package-lock.json")}}'
+  - run: echo '${{env.name}}-${{hashFile("./package-lock.json")}}'
     path: './'
 
 
