@@ -12,10 +12,10 @@ steps:
       key: ${{hashFile('./src/package.json')}}
       # key: 'xxxxxxx'
       path: /root/.npm
-      region: cn-shenzhen
+      region: cn-hongkong
       ossConfig:
-        bucket: wss-test-shenzhen
-        internal: false
+        bucket: 1740298130743624-cn-hongkong-serverless-cd
+        # internal: false
       credentials:
         accessKeyID: ${{cloudSecrets.AccessKeyID}}
         accessKeySecret: ${{cloudSecrets.AccessKeySecret}}
