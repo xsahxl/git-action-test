@@ -6,25 +6,25 @@ name: "On Push masters"
   # - java17
 
 steps:
-  - plugin: "@serverless-cd/cache"
-    id: my-cache
-    inputs:
-      # key: ${{hashFile('./src/package.json')}}
-      key: 'xxxxxxx'
-      path: /tmp/my-cache
-      region: cn-shenzhen
-      ossConfig:
-        bucket: wss-test-shenzhen
-        internal: false
-      credentials:
-        accessKeySecret: ${{cloudSecrets.AccessKeySecret}}
-        accessKeyID: ${{cloudSecrets.AccessKeyID}}
+  # - plugin: "@serverless-cd/cache"
+  #   id: my-cache
+  #   inputs:
+  #     # key: ${{hashFile('./src/package.json')}}
+  #     key: 'xxxxxxx'
+  #     path: /tmp/my-cache
+  #     region: cn-shenzhen
+  #     ossConfig:
+  #       bucket: wss-test-shenzhen
+  #       internal: false
+  #     credentials:
+  #       accessKeySecret: ${{cloudSecrets.AccessKeySecret}}
+  #       accessKeyID: ${{cloudSecrets.AccessKeyID}}
   - run: env
-  - run: echo {{ steps['my-cache'].outputs['cache-hit'] == 'true' }}
-  - run: npm install --production
-    env:
-      PATH: /tmp/my-cache:${{env.PATH}}
-      NODE_PATH: /tmp/my-cache:${{env.NODE_PATH}}
+  # - run: echo {{ steps['my-cache'].outputs['cache-hit'] == 'true' }}
+  # - run: npm install --production
+  #   env:
+  #     PATH: /tmp/my-cache
+  #     NODE_PATH: /tmp/my-cache
 
   # - run: npm install @serverless-devs/s@beta -g
   # - run: ls -al
