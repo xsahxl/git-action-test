@@ -9,8 +9,8 @@ steps:
   - plugin: "@serverless-cd/cache"
     id: my-cache
     inputs:
-      # key: ${{hashFile('./src/package.json')}}
-      key: 'xxxxxxx'
+      key: ${{hashFile('./src/package.json')}}
+      # key: 'xxxxxxx'
       path: /root/.npm
       region: cn-shenzhen
       ossConfig:
