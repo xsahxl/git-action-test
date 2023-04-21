@@ -19,6 +19,8 @@ steps:
     path: './'
   - run: pwd
   - run: ls -al
-  - run: echo '${{env.name}}-${{hashFile("./test.txt")}}'
+  - run: echo '${{env.name}}-${{hashFile("package-lock.json")}}'
+    path: './'
+
 
   
