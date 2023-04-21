@@ -14,10 +14,10 @@
   "license": "ISC",
   "dependencies": {
     "npm-registry-fetch": "^14.0.2",
+    "@alicloud/console-components": "^1.5.10",
     "urlencode": "^1.1.0"
   },
   "devDependencies": {
-    "@alicloud/console-components": "^1.5.10",
     "@testing-library/jest-dom": "^5.15.1",
     "@testing-library/react": "^13.0.0",
     "@types/jest": "^27.0.3",

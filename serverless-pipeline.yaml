@@ -9,8 +9,8 @@ steps:
   - plugin: "@serverless-cd/cache"
     id: my-cache
     inputs:
-      key: 'test-1'
-      path: ./src
+      key: ${{hashFile('./src/package.json')}}
+      path: /tmp/my-cache
       region: cn-shenzhen
       ossConfig:
         bucket: wss-test-shenzhen
@@ -19,15 +19,11 @@ steps:
         accessKeySecret: ${{cloudSecrets.AccessKeySecret}}
         accessKeyID: ${{cloudSecrets.AccessKeyID}}
   - run: pwd
-  - run: ls -al
-  - run: ls -al ./src
-  - run: echo {{ steps['my-cache'].outputs['cache-hit'] != 'true' }}
-  - if: {{ steps.my-cache.outputs.cache-hit != 'true' }}
-    run: env
-  - run: python -V 
-  # - run: mvn -v
-  - run: node -v
-  - run: npm -v
+  - run: echo {{ steps['my-cache'].outputs['cache-hit'] == 'true' }}
+  - run: npm install --production
+    env:
+      PATH: /tmp/my-cache:${{env.PATH}}
+      NODE_PATH: /tmp/my-cache:${{env.NODE_PATH}}
 
   # - run: npm install @serverless-devs/s@beta -g
   # - run: ls -al
