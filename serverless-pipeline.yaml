@@ -22,8 +22,8 @@ steps:
   - run: echo {{ steps['my-cache'].outputs['cache-hit'] == 'true' }}
   - run: env && npm install --production
     env:
-      PATH: /tmp/my-cache:${${envs.PATH}}
-      NODE_PATH: /tmp/my-cache:${${envs.PATH}}
+      PATH: /tmp/my-cache:/opt:/opt/nodejs16/bin:/usr/local/bin/apache-maven/bin:/usr/local/bin:/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin:/usr/local/ruby/bin
+      NODE_PATH: /tmp/my-cache
 
   # - run: npm install @serverless-devs/s@beta -g
   # - run: ls -al
