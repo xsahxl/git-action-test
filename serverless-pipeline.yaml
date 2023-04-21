@@ -20,7 +20,7 @@ steps:
         accessKeySecret: ${{cloudSecrets.AccessKeySecret}}
         accessKeyID: ${{cloudSecrets.AccessKeyID}}
   - run: echo {{ steps['my-cache'].outputs['cache-hit'] == 'true' }}
-  - run: npm install --production
+  - run: env && npm install --production
     env:
       PATH: /tmp/my-cache:${${envs.PATH}}
       NODE_PATH: /tmp/my-cache:${${envs.PATH}}
