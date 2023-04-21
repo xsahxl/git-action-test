@@ -15,7 +15,8 @@ steps:
   - run: echo 'Hi {{ task_id }}'
   - run: echo 'Hi {{ app.user_name }}'
   - run: echo 'Hi {{ git.event_name }}'
-  - run: echo 'test' >> test.txt  
-  - run: echo '${{env.name}}-${{hashFile("test.txt")}}'
+  - run: echo 'test' >> test.txt
+    path: './'
+  - run: echo '${{env.name}}-${{hashFile("./test.txt")}}'
 
   
