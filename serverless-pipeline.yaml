@@ -1,13 +1,9 @@
 name: "On Push masters"
 
 steps:
-  - run: echo $PATH
-  - plugin: "@serverless-cd/setup-runtime"
+  - run: npm install @serverless-devs/s -g
+  - plugin: "@serverless-cd/s-setup"
     inputs:
-      runtime:
-        - nodejs18
-        - nodejs22
-        - python3.10
-        - java8
-  - run: echo $PATH
+      alias: "s-setup"
+  - run: s config get
       
