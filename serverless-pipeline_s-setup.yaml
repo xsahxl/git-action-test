@@ -1,0 +1,10 @@
+name: "On Push masters"
+
+steps:
+  # - run: npm install @serverless-devs/s -g
+  # - run: s config get
+  - plugin: "@serverless-cd/s-setup"
+    inputs:
+      alias: "s-setup"
+  - run: s config get
+      
