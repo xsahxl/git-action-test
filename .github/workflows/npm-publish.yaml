@@ -1,9 +1,6 @@
 name: Node.js Package
 
-on:
-  push:
-    tags:
-      - "release/**"
+on: ['push']
 
 jobs:
   publish-npm:
@@ -14,8 +11,9 @@ jobs:
         with:
           node-version: 18
           registry-url: https://registry.npmjs.org/
+      - run: echo ${{secrets.NPM_TOKEN}} | awk '{print length($0)}'
       - name: create .npmrc
-        run: echo "//registry.npmjs.org/:_authToken=${{secrets.NPM_TOKEN}}" > .npmrc
+        run: echo "//registry.npmjs.org/:_authToken=${{env.NPM_TOKEN}}" > .npmrc
         working-directory: ./src
       - name: publish
         run: npm publish
