@@ -14,8 +14,9 @@ jobs:
         with:
           node-version: 18
           registry-url: https://registry.npmjs.org/
-      - name: engine publish
+      - name: create .npmrc
+        run: echo "//registry.npmjs.org/:_authToken=${{secrets.NPM_TOKEN}}" > .npmrc
+        working-directory: ./src
+      - name: publish
         run: npm publish
         working-directory: ./src
-        env:
-          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
