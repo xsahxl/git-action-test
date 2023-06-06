@@ -1,0 +1,21 @@
+name: Node.js Package
+
+on:
+  push:
+    tags:
+      - "release/**"
+
+jobs:
+  publish-npm:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - uses: actions/setup-node@v2
+        with:
+          node-version: 18
+          registry-url: https://registry.npmjs.org/
+      - name: engine publish
+        run: npm publish
+        working-directory: ./src
+        env:
+          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
