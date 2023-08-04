@@ -11,12 +11,6 @@ jobs:
         with:
           node-version: 18
           registry-url: https://registry.npmjs.org/
-#       - run: echo ${{secrets.NPM_TOKEN}} | awk '{print length($0)}'
-#       - name: create .npmrc
-#         run: echo "//registry.npmjs.org/:_authToken=${{env.NPM_TOKEN}}" > .npmrc
-#         working-directory: ./src
-      - name: publish
-        run: npm publish
-        working-directory: ./src
-        env:
-          NODE_AUTH_TOKEN: ${{secrets.NPM_TOKEN}}
+      - run: npm i @xsahxl/s@3.x -g
+      - run: s3 config add --keyList key1,key2,key3 --valueList value1,value2,value3 -a wss-root -f
+      - run: s3 config get
